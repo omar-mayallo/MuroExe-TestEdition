@@ -5,7 +5,9 @@ import {setCurrentUser} from "./Redux/StateSlices/User/userSlice";
 import {auth, createUserDoc} from "./Firebase/Firebase-config";
 import {onSnapshot} from "firebase/firestore";
 
-import Layout from "./Components/Layout/Layouts/Layout";
+// import Layout from "./Components/Layout/Layouts/Layout";
+import Header from "./Components/Sections/C-Header/Header";
+import Footer from "./Components/Sections/C-Footer/Footer";
 import Home from "./Pages/Pg-Home/Home";
 import Shop from "./Pages/Pg-Shop/Shop";
 import ShopDepartments from "./Components/Sections/Sh-ShopDepartments/ShopDepartments";
@@ -50,41 +52,41 @@ const App = () => {
   }, [Dispatch]);
   return (
     <div className="App">
+      <Header />
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="product/:productId" element={<Product />} />
-          <Route path="shop" element={<Shop />}>
-            <Route index element={<ShopDepartments />} />
-            <Route path=":departmentId" element={<Department />} />
-          </Route>
-          <Route path="checkout" element={<Checkout />} />
-          <Route
-            path="user"
-            element={
-              !currentUser ? <Navigate to={`/`} replace={true} /> : <User />
-            }
-          />
-          <Route
-            path="sign-in"
-            element={
-              !currentUser ? <Sign /> : <Navigate to={`/`} replace={true} />
-            }
-          />
-          <Route path="about" element={<About />} />
-          <Route path="design-process" element={<DesignProcess />} />
-          <Route path="returns" element={<Returns />} />
-          <Route path="faq" element={<FAQ />} />
-          <Route path="terms-and-conditions" element={<TermsAndCondition />} />
-          <Route
-            path="ordering-for-companies"
-            element={<OrderingForCompanies />}
-          />
-          <Route path="legal-notice" element={<LegalNotice />} />
-          <Route path="shipping" element={<Shipping />} />
-          <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/shop" element={<Shop />}>
+          <Route index element={<ShopDepartments />} />
+          <Route path=":departmentId" element={<Department />} />
         </Route>
+        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/user"
+          element={
+            !currentUser ? <Navigate to={`/`} replace={true} /> : <User />
+          }
+        />
+        <Route
+          path="/sign-in"
+          element={
+            !currentUser ? <Sign /> : <Navigate to={`/`} replace={true} />
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/design-process" element={<DesignProcess />} />
+        <Route path="/returns" element={<Returns />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/terms-and-conditions" element={<TermsAndCondition />} />
+        <Route
+          path="/ordering-for-companies"
+          element={<OrderingForCompanies />}
+        />
+        <Route path="/legal-notice" element={<LegalNotice />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <Header />
     </div>
   );
 };
