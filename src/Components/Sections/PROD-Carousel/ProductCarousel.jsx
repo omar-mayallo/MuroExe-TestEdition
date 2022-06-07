@@ -49,8 +49,8 @@ const ProductCarousel = ({hoverImgUrl, imageUrl}) => {
         slidesToSlide={1}
         swipeable
       >
-        <img src={imageUrl} height="auto" width="auto" />
-        <img src={hoverImgUrl} height="auto" width="auto" />
+        <img src={imageUrl} height="auto" width="auto" alt="Product-img" />
+        <img src={hoverImgUrl} height="auto" width="auto" alt="Product-img" />
       </Carousel>
     </div>
   );

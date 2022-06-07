@@ -1,25 +1,22 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useMatch } from "react-router-dom";
-import { clearWishList } from "../../../Redux/StateSlices/Wishlist/WishListSlice";
+import React, {useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
+import {clearWishList} from "../../../Redux/StateSlices/Wishlist/WishListSlice";
 import CustomButton from "../../Items/Custom-button/CustomButton";
 
 import InfoItem from "../../Items/InfoItem/InfoItem";
 import NoItemYet from "../../Items/NoItemYet/NoItemYet";
 import WishItem from "../../Items/WishItem/WishItem";
 import "./InfoList.scss";
-const InfoList = ({ activeOption }) => {
+const InfoList = ({activeOption}) => {
   const Dispatch = useDispatch();
-  // const Match = useMatch();
-
   const [infoItemsState] = useState([
-    { id: 1, head: "My Personal Data" },
-    { id: 2, head: "My Orders" },
-    { id: 3, head: "My Wishlist" },
-    { id: 4, head: "My Alerts" },
+    {id: 1, head: "My Personal Data"},
+    {id: 2, head: "My Orders"},
+    {id: 3, head: "My Wishlist"},
+    {id: 4, head: "My Alerts"},
   ]);
-  const { currentUser } = useSelector((state) => state.user);
-  const { wishListItems } = useSelector((state) => state.wishList);
+  const {currentUser} = useSelector((state) => state.user);
+  const {wishListItems} = useSelector((state) => state.wishList);
 
   const WishList = wishListItems.map((item) => (
     <div key={item.id} className="col-lg-3 col-md-4 col-6 text-center mb-3">

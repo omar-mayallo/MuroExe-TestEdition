@@ -5,13 +5,11 @@ import {setCurrentUser} from "./Redux/StateSlices/User/userSlice";
 import {auth, createUserDoc} from "./Firebase/Firebase-config";
 import {onSnapshot} from "firebase/firestore";
 
-// import Layout from "./Components/Layout/Layouts/Layout";
+import Layout from "./Components/Layout/Layouts/Layout";
 import Header from "./Components/Sections/C-Header/Header";
 import Footer from "./Components/Sections/C-Footer/Footer";
 import Home from "./Pages/Pg-Home/Home";
 import Shop from "./Pages/Pg-Shop/Shop";
-import ShopDepartments from "./Components/Sections/Sh-ShopDepartments/ShopDepartments";
-import Department from "./Pages/Pg-Department/Department";
 import Sign from "./Pages/Pg-Sign/Sign";
 import Checkout from "./Pages/Pg-Checkout/Checkout";
 import Product from "./Pages/Pg-Product/Product";
@@ -54,12 +52,10 @@ const App = () => {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Layout />} />
+        <Route index element={<Home />} />
         <Route path="/product/:productId" element={<Product />} />
-        <Route path="/shop" element={<Shop />}>
-          <Route index element={<ShopDepartments />} />
-          <Route path=":departmentId" element={<Department />} />
-        </Route>
+        <Route path="/shop/*" element={<Shop />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route
           path="/user"
@@ -86,7 +82,7 @@ const App = () => {
         <Route path="/shipping" element={<Shipping />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <Header />
+      <Footer />
     </div>
   );
 };
