@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/muroexe/static/css/main.858fb4de.css",
-    "main.js": "/muroexe/static/js/main.496b9e7e.js",
-    "static/media/revicons.eot": "/muroexe/static/media/revicons.a77de540a38981833f9e.eot",
-    "static/media/revicons.ttf": "/muroexe/static/media/revicons.57fd05d4ae650374c8de.ttf",
-    "static/media/revicons.woff": "/muroexe/static/media/revicons.e8746a624ed098489406.woff",
-    "index.html": "/muroexe/index.html",
-    "main.858fb4de.css.map": "/muroexe/static/css/main.858fb4de.css.map",
-    "main.496b9e7e.js.map": "/muroexe/static/js/main.496b9e7e.js.map"
+    "main.css": "/MuroExe-TestEdition/static/css/main.3489ac11.css",
+    "main.js": "/MuroExe-TestEdition/static/js/main.0507fab8.js",
+    "static/media/revicons.eot": "/MuroExe-TestEdition/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/MuroExe-TestEdition/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/MuroExe-TestEdition/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/MuroExe-TestEdition/index.html",
+    "main.3489ac11.css.map": "/MuroExe-TestEdition/static/css/main.3489ac11.css.map",
+    "main.0507fab8.js.map": "/MuroExe-TestEdition/static/js/main.0507fab8.js.map"
   },
   "entrypoints": [
-    "static/css/main.858fb4de.css",
-    "static/js/main.496b9e7e.js"
+    "static/css/main.3489ac11.css",
+    "static/js/main.0507fab8.js"
   ]
 }
