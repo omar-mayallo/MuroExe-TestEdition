@@ -54,9 +54,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route index element={<Home />} />
-        <Route path="/product/:productId" element={<Product />} />
-        <Route path="/shop/*" element={<Shop />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="product/:productId" element={<Product />} />
+        <Route path="shop/*" element={<Shop />} />
+        <Route path="checkout" element={<Checkout />} />
         <Route
           path="/user"
           element={
@@ -64,22 +64,22 @@ const App = () => {
           }
         />
         <Route
-          path="/sign-in"
+          path="sign-in"
           element={
             !currentUser ? <Sign /> : <Navigate to={`/`} replace={true} />
           }
         />
-        <Route path="/about" element={<About />} />
-        <Route path="/design-process" element={<DesignProcess />} />
-        <Route path="/returns" element={<Returns />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/terms-and-conditions" element={<TermsAndCondition />} />
+        <Route path="about" element={<About />} />
+        <Route path="design-process" element={<DesignProcess />} />
+        <Route path="returns" element={<Returns />} />
+        <Route path="faq" element={<FAQ />} />
+        <Route path="terms-and-conditions" element={<TermsAndCondition />} />
         <Route
-          path="/ordering-for-companies"
+          path="ordering-for-companies"
           element={<OrderingForCompanies />}
         />
-        <Route path="/legal-notice" element={<LegalNotice />} />
-        <Route path="/shipping" element={<Shipping />} />
+        <Route path="legal-notice" element={<LegalNotice />} />
+        <Route path="shipping" element={<Shipping />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
