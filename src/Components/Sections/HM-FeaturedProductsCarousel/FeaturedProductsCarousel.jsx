@@ -11,9 +11,11 @@ import ProductItem from "../../Items/ProductItem/ProductItem";
 const FeaturedProductsCarousel = () => {
   const {shopData} = useSelector((state) => state.shop);
   let newArr = [];
-  shopData.map((dep) =>
-    dep.items.map((item) => (item.onSaleValue ? newArr.push(item) : null))
-  );
+  Object.keys(shopData)
+    .map((key) => shopData[key])
+    .map((dep) =>
+      dep.items.map((item) => (item.onSaleValue ? newArr.push(item) : null))
+    );
   const filteredData = newArr
     .reverse((a, b) => a.onSaleValue - b.onSaleValue)
     .filter((el, idx) => idx < 8);

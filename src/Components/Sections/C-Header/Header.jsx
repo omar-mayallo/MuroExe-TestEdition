@@ -1,24 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
-import {
-  Navbar,
-  Offcanvas,
-  Nav,
-  NavDropdown,
-  Container,
-} from "react-bootstrap";
+import React, {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import {NavLink, useNavigate} from "react-router-dom";
+import {Navbar, Offcanvas, Nav, NavDropdown, Container} from "react-bootstrap";
 
 import CartIcon from "../../Items/Cart-Icon/CartIcon";
 import SearchIcon from "../../Items/Search-Icon/SearchIcon";
-import { BsPersonCircle } from "react-icons/bs";
+import {BsPersonCircle} from "react-icons/bs";
 
 import "./Header.scss";
 
 const Header = () => {
   const Navigate = useNavigate();
   //From Redux
-  const { currentUser } = useSelector((state) => state.user);
+  const {currentUser} = useSelector((state) => state.user);
 
   //Fixed When Scroll 150px
   const [fixedClass, setfixedClass] = useState("");
@@ -60,7 +54,7 @@ const Header = () => {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <NavLink
-                  className={({ isActive }) =>
+                  className={({isActive}) =>
                     isActive ? "nav-element active" : "nav-element"
                   }
                   to="/"
@@ -68,7 +62,7 @@ const Header = () => {
                   Home
                 </NavLink>
                 <NavLink
-                  className={({ isActive }) =>
+                  className={({isActive}) =>
                     isActive ? "nav-element active" : "nav-element"
                   }
                   to="/shop"
@@ -81,7 +75,7 @@ const Header = () => {
                 >
                   <div className="dropdown-element">
                     <NavLink
-                      className={({ isActive }) =>
+                      className={({isActive}) =>
                         isActive ? "nav-element active" : "nav-element"
                       }
                       to="/shop/boots"
@@ -91,7 +85,7 @@ const Header = () => {
                   </div>
                   <div className="dropdown-element">
                     <NavLink
-                      className={({ isActive }) =>
+                      className={({isActive}) =>
                         isActive ? "nav-element active" : "nav-element"
                       }
                       to="/shop/sneakers"
@@ -101,7 +95,7 @@ const Header = () => {
                   </div>
                   <div className="dropdown-element">
                     <NavLink
-                      className={({ isActive }) =>
+                      className={({isActive}) =>
                         isActive ? "nav-element active" : "nav-element"
                       }
                       to="/shop/slippers"
@@ -111,7 +105,7 @@ const Header = () => {
                   </div>
                   <div className="dropdown-element">
                     <NavLink
-                      className={({ isActive }) =>
+                      className={({isActive}) =>
                         isActive ? "nav-element active" : "nav-element"
                       }
                       to="/shop/accessories"
@@ -122,7 +116,7 @@ const Header = () => {
                 </NavDropdown>
                 {currentUser ? null : (
                   <NavLink
-                    className={({ isActive }) =>
+                    className={({isActive}) =>
                       isActive ? "nav-element active" : "nav-element"
                     }
                     to="/sign-in"

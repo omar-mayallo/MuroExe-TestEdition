@@ -5,19 +5,22 @@ import SectionContainer from "../../Components/Layout/SectionContainer/SectionCo
 import FeaturedProductsCarousel from "../../Components/Sections/HM-FeaturedProductsCarousel/FeaturedProductsCarousel";
 import ProductCarousel from "../../Components/Sections/PROD-Carousel/ProductCarousel";
 import ProductDetails from "../../Components/Sections/PROD-Details/ProductDetails";
+import WithSpinner from "../../Components/HOC/Spinner";
 import "./Product.scss";
 const Product = () => {
   const {shopData} = useSelector((state) => state.shop);
   const Params = useParams();
   let allProductsData = [];
-  shopData.map((shData) => allProductsData.push(...shData.items));
+  Object.keys(shopData)
+    .map((key) => shopData[key])
+    .map((shData) => allProductsData.push(...shData.items));
   const productData = allProductsData.find(
     (item) =>
       item.name.toLowerCase().split(" ").toString().replaceAll(",", "-") ===
       Params.productId
   );
-
-  const {hoverImgUrl, imageUrl} = productData;
+  console.log(productData);
+  const {hoverImgUrl, imageUrl} = productData || {};
   return (
     <SectionContainer Tag="section" Class="product-page">
       <div className="product-container row">
@@ -32,4 +35,4 @@ const Product = () => {
     </SectionContainer>
   );
 };
-export default Product;
+export default WithSpinner(Product);

@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {clearWishList} from "../../../Redux/StateSlices/Wishlist/WishListSlice";
 import CustomButton from "../../Items/Custom-button/CustomButton";
-
 import InfoItem from "../../Items/InfoItem/InfoItem";
 import NoItemYet from "../../Items/NoItemYet/NoItemYet";
 import WishItem from "../../Items/WishItem/WishItem";
@@ -53,7 +52,9 @@ const InfoList = ({activeOption}) => {
         id={infoItemsState[1].id}
         head={infoItemsState[1].head}
         activeOption={activeOption}
-      ></InfoItem>
+      >
+        <NoItemYet>No Orders Yet !</NoItemYet>
+      </InfoItem>
       {/*Wishlist___________________________________________________________________________________ */}
       <InfoItem
         id={infoItemsState[2].id}

@@ -9,14 +9,15 @@ import "./ProductDetails.scss";
 
 const ProductDetails = ({item}) => {
   const Dispatch = useDispatch();
-  const {description, name, price, size, style, onSaleValue, newState} = item;
+  const {description, name, price, size, style, onSaleValue, newState} =
+    item || {};
 
   return (
     <div className="product-details">
       <div className="product-details-header">
         <div className="product-details-head">
           <h2 className="product-name">
-            {name.toUpperCase()}
+            {name?.toUpperCase()}
             {newState ? <span className="new-badge">New</span> : null}
           </h2>
           <div
@@ -42,7 +43,7 @@ const ProductDetails = ({item}) => {
           <div className="size-list">
             <span className="size-list-header">Size</span>
             <ul className="size-list-block">
-              {size.map((el) => (
+              {size?.map((el) => (
                 <li className="size-item" key={Math.random()}>
                   <input type="radio" name="size" value={el} />
                   <span className="radio-label">{el}</span>

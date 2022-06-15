@@ -1,15 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
+import {useSelector} from "react-redux";
 import Pghead from "../../Layout/PgHead/PgHead";
 import DepartmentSecItem from "../../Items/DepartmentSecItem/DepartmentSecItem";
-
+import WithSpinner from "../../HOC/Spinner";
 const ShopDepartments = () => {
-  const { shopData } = useSelector((state) => state.shop);
-  const Departments = shopData.map(({ id, ...restProps }) => (
-    <DepartmentSecItem key={id} {...restProps} />
-  ));
-
+  const {shopData} = useSelector((state) => state.shop);
+  const Departments = Object.keys(shopData)
+    .map((key) => shopData[key])
+    .map(({id, ...restProps}) => <DepartmentSecItem key={id} {...restProps} />);
   return (
     <div className="department-sec">
       <Pghead
@@ -20,5 +18,4 @@ const ShopDepartments = () => {
     </div>
   );
 };
-
-export default ShopDepartments;
+export default WithSpinner(ShopDepartments);

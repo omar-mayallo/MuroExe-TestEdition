@@ -1,13 +1,14 @@
 import React, {useEffect} from "react";
 import {Routes, Route, Navigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import {fetchDataStart} from "./Redux/StateSlices/Shop/ShopSlice";
 import {setCurrentUser} from "./Redux/StateSlices/User/userSlice";
-import {auth, createUserDoc} from "./Firebase/Firebase-config";
+import {
+  onAuthStateChangedListener,
+  createUserDoc,
+} from "./Firebase/Firebase-config";
 import {onSnapshot} from "firebase/firestore";
-
 import Layout from "./Components/Layout/Layouts/Layout";
-import Header from "./Components/Sections/C-Header/Header";
-import Footer from "./Components/Sections/C-Footer/Footer";
 import Home from "./Pages/Pg-Home/Home";
 import Shop from "./Pages/Pg-Shop/Shop";
 import Sign from "./Pages/Pg-Sign/Sign";
@@ -22,18 +23,19 @@ import OrderingForCompanies from "./Pages/Pg-OrderingForCompanies/OrderingForCom
 import User from "./Pages/Pg-User/User";
 import DesignProcess from "./Pages/Pg-DesignProcess/DesignProcess";
 import LegalNotice from "./Pages/Pg-LegalNotice/LegalNotice";
+
 import "./App.scss";
 
 const App = () => {
   const {currentUser} = useSelector((state) => state.user);
+  const {isLoading} = useSelector((state) => state.shop);
   const Dispatch = useDispatch();
   useEffect(() => {
-    let unsubscribeFromAuth = null;
-    unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+    Dispatch(fetchDataStart());
+    const unsubscribe = onAuthStateChangedListener(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserDoc(userAuth);
         onSnapshot(userRef, (snapshot) => {
-          // console.log(snapshot.data());
           Dispatch(
             setCurrentUser({
               id: snapshot.id,
@@ -45,44 +47,46 @@ const App = () => {
         Dispatch(setCurrentUser(userAuth));
       }
     });
-    // returned function will be called on component unmount
-    return () => unsubscribeFromAuth();
+    return unsubscribe;
   }, [Dispatch]);
+
   return (
     <div className="App">
-      <Header />
       <Routes>
-        <Route path="/" element={<Layout />} />
-        <Route index element={<Home />} />
-        <Route path="product/:productId" element={<Product />} />
-        <Route path="shop/*" element={<Shop />} />
-        <Route path="checkout" element={<Checkout />} />
-        <Route
-          path="/user"
-          element={
-            !currentUser ? <Navigate to={`/`} replace={true} /> : <User />
-          }
-        />
-        <Route
-          path="sign-in"
-          element={
-            !currentUser ? <Sign /> : <Navigate to={`/`} replace={true} />
-          }
-        />
-        <Route path="about" element={<About />} />
-        <Route path="design-process" element={<DesignProcess />} />
-        <Route path="returns" element={<Returns />} />
-        <Route path="faq" element={<FAQ />} />
-        <Route path="terms-and-conditions" element={<TermsAndCondition />} />
-        <Route
-          path="ordering-for-companies"
-          element={<OrderingForCompanies />}
-        />
-        <Route path="legal-notice" element={<LegalNotice />} />
-        <Route path="shipping" element={<Shipping />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="product/:productId"
+            element={<Product isLoading={isLoading} />}
+          />
+          <Route path="shop/*" element={<Shop />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route
+            path="user"
+            element={
+              !currentUser ? <Navigate to={`/`} replace={true} /> : <User />
+            }
+          />
+          <Route
+            path="sign-in"
+            element={
+              !currentUser ? <Sign /> : <Navigate to={`/`} replace={true} />
+            }
+          />
+          <Route path="about" element={<About />} />
+          <Route path="design-process" element={<DesignProcess />} />
+          <Route path="returns" element={<Returns />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="terms-and-conditions" element={<TermsAndCondition />} />
+          <Route
+            path="ordering-for-companies"
+            element={<OrderingForCompanies />}
+          />
+          <Route path="legal-notice" element={<LegalNotice />} />
+          <Route path="shipping" element={<Shipping />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
       </Routes>
-      <Footer />
     </div>
   );
 };

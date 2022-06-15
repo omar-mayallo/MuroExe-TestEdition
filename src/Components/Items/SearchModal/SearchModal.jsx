@@ -1,16 +1,20 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { Modal } from "react-bootstrap";
-import { FaSortAmountUp, FaSearch } from "react-icons/fa";
+import React, {useState} from "react";
+import {useSelector} from "react-redux";
+import {Modal} from "react-bootstrap";
+import {FaSortAmountUp, FaSearch} from "react-icons/fa";
 import ProductItem from "../ProductItem/ProductItem";
+import NoItemYet from "../NoItemYet/NoItemYet";
 import "./SearchModal.scss";
 
 const SearchModal = (props) => {
   const [searchVal, setSearchVal] = useState(null);
   const [orderVal, setOrderVal] = useState("all");
-  const { shopData } = useSelector((state) => state.shop);
+  const {shopData} = useSelector((state) => state.shop);
   let allProductsData = [];
-  shopData.map((shData) => allProductsData.push(...shData.items));
+  Object.keys(shopData).map((title) => {
+    const {items} = shopData[title];
+    allProductsData.push(...items);
+  });
   const handelSearch = (e) => setSearchVal(e.target.value);
   const handelChange = (e) => setOrderVal(e.target.value);
   const searchFilteredProducts = allProductsData.filter((item) => {
@@ -65,17 +69,14 @@ const SearchModal = (props) => {
           </div>
         </div>
         <div className="container search-container">
-          <div className="row my-5">
-            {!searchFilteredProducts.length ? (
-              <div className="no-items">No Items Found !</div>
-            ) : (
-              Items
-            )}
-          </div>
+          {!searchFilteredProducts.length ? (
+            <NoItemYet>No Items Found !</NoItemYet>
+          ) : (
+            <div className="row my-5">{Items}</div>
+          )}
         </div>
       </Modal.Body>
     </Modal>
   );
 };
-
 export default SearchModal;
