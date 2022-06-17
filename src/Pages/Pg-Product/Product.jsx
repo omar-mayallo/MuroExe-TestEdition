@@ -19,7 +19,6 @@ const Product = () => {
       item.name.toLowerCase().split(" ").toString().replaceAll(",", "-") ===
       Params.productId
   );
-  console.log(productData);
   const {hoverImgUrl, imageUrl} = productData || {};
   return (
     <SectionContainer Tag="section" Class="product-page">

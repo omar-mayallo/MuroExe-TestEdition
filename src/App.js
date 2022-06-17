@@ -84,7 +84,7 @@ const App = () => {
           />
           <Route path="legal-notice" element={<LegalNotice />} />
           <Route path="shipping" element={<Shipping />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
         </Route>
       </Routes>
     </div>
