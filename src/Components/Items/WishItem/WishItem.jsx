@@ -1,12 +1,12 @@
 import React from "react";
-import { BsX } from "react-icons/bs";
-import { removeItemFromWishList } from "../../../Redux/StateSlices/Wishlist/WishListSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {BsX} from "react-icons/bs";
+import {removeItemFromWishList} from "../../../Redux/StateSlices/Wishlist/WishListSlice";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 import "./WishItem.scss";
-const WishItem = ({ item }) => {
-  const { imageUrl, name, price } = item;
+const WishItem = ({item}) => {
+  const {imageUrl, name, price} = item;
   const Dispatch = useDispatch();
   const Navigate = useNavigate();
 
@@ -36,5 +36,4 @@ const WishItem = ({ item }) => {
     </div>
   );
 };
-
-export default WishItem;
+export default React.memo(WishItem);

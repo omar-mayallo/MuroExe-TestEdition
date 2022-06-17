@@ -1,6 +1,6 @@
 import React from "react";
 import "./CartItem.scss";
-const CartItem = ({ item: { name, imageUrl, price, quantity } }) => {
+const CartItem = ({item: {name, imageUrl, price, quantity}}) => {
   return (
     <div className="cart-item">
       <div className="cartItem-container">
@@ -18,5 +18,4 @@ const CartItem = ({ item: { name, imageUrl, price, quantity } }) => {
     </div>
   );
 };
-
 export default CartItem;

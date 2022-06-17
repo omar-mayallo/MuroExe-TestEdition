@@ -6,7 +6,7 @@ import Features from "../../Components/Sections/HM-Features/Features";
 import FeaturedProductsCarousel from "../../Components/Sections/HM-FeaturedProductsCarousel/FeaturedProductsCarousel";
 import InstaCarousel from "../../Components/Sections/HM-InstaCarousel/InstaCarousel";
 import NewProductsCarousel from "../../Components/Sections/HM-NewProductsCarousel/NewProductsCarousel";
-import WithSpinner from "../../Components/HOC/Spinner";
+import WithSpinner from "../../Components/HOC/Spinner/Spinner";
 
 const CollectionsWithSpinner = WithSpinner(Collections);
 const NewProductsCarouselWithSpinner = WithSpinner(NewProductsCarousel);

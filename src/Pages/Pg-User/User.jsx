@@ -1,33 +1,30 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import OptionList from "../../Components/Sections/USR-OptionList/OptionList";
 import InfoList from "../../Components/Sections/USR-InfoList/InfoList";
-import "./User.scss";
-
+import {UserBlock, OptionsBlock, InfoBlock} from "./User.styled";
 const User = () => {
   const [activeOption, setActiveOption] = useState(1);
   const changeActive = (idx) => {
     setActiveOption(idx);
   };
-
   return (
     <section className="user-page">
       <div className="container my-5">
-        <div className="user-block">
+        <UserBlock>
           <div className="row">
-            <aside className="options-block col-lg-3">
+            <OptionsBlock className="col-lg-3">
               <OptionList
                 changeActive={changeActive}
                 activeOption={activeOption}
               />
-            </aside>
-            <section className="info-block col-lg-9">
+            </OptionsBlock>
+            <InfoBlock className="col-lg-9">
               <InfoList activeOption={activeOption} />
-            </section>
+            </InfoBlock>
           </div>
-        </div>
+        </UserBlock>
       </div>
     </section>
   );
 };
-
 export default User;

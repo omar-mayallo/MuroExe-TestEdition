@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import SectionContainer from "../../Layout/SectionContainer/SectionContainer";
 import CustomButton from "../../Items/Custom-button/CustomButton";
 import "./Main.scss";
@@ -28,7 +28,7 @@ const Main = () => {
   const changeActive = (index) => {
     setActiveButton(index);
   };
-  const CarouselImages = imgData.map(({ id, imgURL }) => (
+  const CarouselImages = imgData.map(({id, imgURL}) => (
     <div
       key={id}
       className={
@@ -44,7 +44,7 @@ const Main = () => {
       />
     </div>
   ));
-  const CarouselIndicators = imgData.map(({ id }) => (
+  const CarouselIndicators = imgData.map(({id}) => (
     <li
       key={id}
       className={

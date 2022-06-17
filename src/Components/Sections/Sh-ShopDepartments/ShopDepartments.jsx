@@ -2,7 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 import Pghead from "../../Layout/PgHead/PgHead";
 import DepartmentSecItem from "../../Items/DepartmentSecItem/DepartmentSecItem";
-import WithSpinner from "../../HOC/Spinner";
+import WithSpinner from "../../HOC/Spinner/Spinner";
 const ShopDepartments = () => {
   const {shopData} = useSelector((state) => state.shop);
   const Departments = Object.keys(shopData)

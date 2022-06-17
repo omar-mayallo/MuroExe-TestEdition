@@ -5,8 +5,7 @@ import SectionContainer from "../../Components/Layout/SectionContainer/SectionCo
 import FeaturedProductsCarousel from "../../Components/Sections/HM-FeaturedProductsCarousel/FeaturedProductsCarousel";
 import ProductCarousel from "../../Components/Sections/PROD-Carousel/ProductCarousel";
 import ProductDetails from "../../Components/Sections/PROD-Details/ProductDetails";
-import WithSpinner from "../../Components/HOC/Spinner";
-import "./Product.scss";
+import WithSpinner from "../../Components/HOC/Spinner/Spinner";
 const Product = () => {
   const {shopData} = useSelector((state) => state.shop);
   const Params = useParams();

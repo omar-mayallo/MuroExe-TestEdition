@@ -1,32 +1,32 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { MdCall, MdMail, MdLocationOn } from "react-icons/md";
-import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
-import { BiChevronRight } from "react-icons/bi";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
+import {MdCall, MdMail, MdLocationOn} from "react-icons/md";
+import {BsFacebook, BsInstagram, BsTwitter, BsYoutube} from "react-icons/bs";
+import {BiChevronRight} from "react-icons/bi";
 
 import "./Footer.scss";
 
 const Footer = () => {
   const [Theme, setTheme] = useState("dark");
   const [footerLinks] = useState([
-    { id: 1, navName: "About us", path: "/about" },
+    {id: 1, navName: "About us", path: "/about"},
     {
       id: 2,
       navName: "Ordering for companies",
       path: "/ordering-for-companies",
     },
-    { id: 3, navName: "Design Process", path: "/design-process" },
-    { id: 4, navName: "Blog", path: "/blog" },
-    { id: 5, navName: "Legal notice", path: "/legal-notice" },
-    { id: 6, navName: "Shipping", path: "/shipping" },
-    { id: 7, navName: "Returns", path: "/returns" },
-    { id: 8, navName: "Terms & conditions", path: "/terms-and-conditions" },
-    { id: 9, navName: "Frequently asked questions", path: "/faq" },
+    {id: 3, navName: "Design Process", path: "/design-process"},
+    {id: 4, navName: "Blog", path: "/blog"},
+    {id: 5, navName: "Legal notice", path: "/legal-notice"},
+    {id: 6, navName: "Shipping", path: "/shipping"},
+    {id: 7, navName: "Returns", path: "/returns"},
+    {id: 8, navName: "Terms & conditions", path: "/terms-and-conditions"},
+    {id: 9, navName: "Frequently asked questions", path: "/faq"},
   ]);
   const handelChange = () => {
     Theme === "dark" ? setTheme("light") : setTheme("dark");
   };
-  const MuroexeWorld = footerLinks.slice(0, 4).map(({ id, navName, path }) => (
+  const MuroexeWorld = footerLinks.slice(0, 4).map(({id, navName, path}) => (
     <li key={id} className="ft-link">
       <Link to={path}>
         <BiChevronRight />
@@ -34,7 +34,7 @@ const Footer = () => {
       </Link>
     </li>
   ));
-  const Information = footerLinks.slice(4, 5).map(({ id, navName, path }) => (
+  const Information = footerLinks.slice(4, 5).map(({id, navName, path}) => (
     <li key={id} className="ft-link">
       <Link to={path}>
         <BiChevronRight />
@@ -44,7 +44,7 @@ const Footer = () => {
   ));
   const BuyGuide = footerLinks
     .slice(5, footerLinks.lengths)
-    .map(({ id, navName, path }) => (
+    .map(({id, navName, path}) => (
       <li key={id} className="ft-link">
         <Link to={path}>
           <BiChevronRight />

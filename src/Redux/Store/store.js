@@ -1,13 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { persistStore } from "redux-persist";
+import {configureStore} from "@reduxjs/toolkit";
+import {persistStore} from "redux-persist";
 import logger from "redux-logger";
 import persistedReducer from "../RootReducer/rootReducer";
 
 let Middlewares = (getDefaultMiddleware) =>
-  getDefaultMiddleware({ serializableCheck: false });
+  getDefaultMiddleware({serializableCheck: false});
 if (process.env.NODE_ENV === "development") {
   Middlewares = (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }).concat(logger);
+    getDefaultMiddleware({serializableCheck: false}).concat(logger);
 }
 
 export const store = configureStore({

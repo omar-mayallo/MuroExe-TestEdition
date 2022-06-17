@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import SectionContainer from "../../Components/Layout/SectionContainer/SectionContainer";
 import SignIn from "../../Components/Items/SignInItem/SignInItem";
 import SignUp from "../../Components/Items/SignUpItem/SignUpItem";
-import "./Sign.scss";
-
+import {SignQuestion} from "./Sign.styled";
 const Sign = () => {
   const [compRender, setCompRender] = useState("sign-in");
   return (
@@ -12,19 +11,19 @@ const Sign = () => {
         {compRender === "sign-in" ? <SignIn /> : <SignUp />}
         <div className="text-center">
           {compRender === "sign-in" ? (
-            <span
+            <SignQuestion
               className="sign-question"
               onClick={() => setCompRender("sign-up")}
             >
               Create Your Account ?
-            </span>
+            </SignQuestion>
           ) : (
-            <span
+            <SignQuestion
               className="sign-question"
               onClick={() => setCompRender("sign-in")}
             >
               Already Have Account ? Login
-            </span>
+            </SignQuestion>
           )}
         </div>
       </div>

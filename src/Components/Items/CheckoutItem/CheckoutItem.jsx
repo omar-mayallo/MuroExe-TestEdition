@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { MdArrowLeft, MdArrowRight } from "react-icons/md";
-import { BsX } from "react-icons/bs";
+import {useDispatch} from "react-redux";
+import {MdArrowLeft, MdArrowRight} from "react-icons/md";
+import {BsX} from "react-icons/bs";
 import {
   deleteItem,
   removeItem,
@@ -10,9 +10,9 @@ import {
 
 import "./CheckoutItem.scss";
 
-const CheckoutItem = ({ cartItem }) => {
+const CheckoutItem = ({cartItem}) => {
   const Dispatch = useDispatch();
-  const { name, imageUrl, quantity, price } = cartItem;
+  const {name, imageUrl, quantity, price} = cartItem;
   return (
     <div className="checkout-item my-3">
       <div className="item-desc quart">
@@ -42,4 +42,4 @@ const CheckoutItem = ({ cartItem }) => {
   );
 };
 
-export default CheckoutItem;
+export default React.memo(CheckoutItem);

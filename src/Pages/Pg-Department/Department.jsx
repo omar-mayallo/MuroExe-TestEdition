@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import PgHead from "../../Components/Layout/PgHead/PgHead";
 import ProductItem from "../../Components/Items/ProductItem/ProductItem";
-import WithSpinner from "../../Components/HOC/Spinner";
+import WithSpinner from "../../Components/HOC/Spinner/Spinner";
 
 const Department = () => {
   const {shopData} = useSelector((state) => state.shop);

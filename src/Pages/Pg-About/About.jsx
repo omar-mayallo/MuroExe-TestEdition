@@ -1,9 +1,7 @@
 import React, {Component} from "react";
-
 import Pghead from "../../Components/Layout/PgHead/PgHead";
 import AboutBlockItem from "../../Components/Items/AboutBlockItem/AboutBlockItem.jsx";
-
-import "./About.scss";
+import {AboutImg} from "./About.styled";
 class About extends Component {
   state = {
     title: "About Us",
@@ -39,14 +37,13 @@ class About extends Component {
         <AboutBlockItem {...restprops} />
       </div>
     ));
-
     return (
       <section className="about-sec">
         <div className="container">
           <Pghead title={title} boldParagraph={boldParagraph1} />
           <div className="row">{AboutUsBlock}</div>
         </div>
-        <div className="aboutBackground"></div>
+        <AboutImg />
         <div className="container">
           <Pghead boldParagraph={boldParagraph2} />
         </div>
@@ -54,5 +51,4 @@ class About extends Component {
     );
   }
 }
-
 export default About;
